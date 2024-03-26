@@ -110,23 +110,19 @@
       const buttons = document.querySelectorAll(".button");
       const input = document.querySelector("#input");
 
-      let inputValue = "";
-
       buttons.forEach((item, index) => {
         if (item.innerText != "c" && item.innerHTML != "=") {
           item.addEventListener("click", (e) => {
-            inputValue += e.target.innerText;
-            input.value = inputValue;
+            input.value += e.target.innerText;
           });
         }
       });
 
-      const clearValue = () => {
-        inputValue = "";
+      function clearValue() {
         input.value = "";
-      };
+      }
       function equallSign() {
-        input.value = eval(inputValue).toString();
+        input.value = eval(input.value);
         inputValue = "";
       }
     </script>
