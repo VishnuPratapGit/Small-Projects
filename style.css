@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgb(16, 16, 16);
+}
+#wrapper {
+  background-color: rgb(0, 0, 0);
+  height: 10vh;
+  display: flex;
+  color: ghostwhite;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0dvh 40px;
+  font-family: ubuntu;
+  font-size: larger;
+  font-weight: 500;
+}
+
+#cart {
+  display: flex;
+  height: 3rem;
+  width: 4rem; /*shifting cart count*/
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+#count {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  position: absolute;
+  top: 5px;
+}
+
+#count span {
+  height: 17px;
+  width: 17px;
+  text-align: center;
+  align-self: center;
+  border-radius: 50%;
+  background-color: rgb(255, 99, 27);
+  font-size: 15px;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.addButton {
+  border: none;
+  position: absolute;
+  bottom: 10%;
+  padding: 10px;
+  transition: all 0.3s;
+  border-radius: 5px;
+  font-weight: 600;
+}
+.addButton:hover {
+  transform: scale(1.1);
+}
+
+#items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.fruits {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+  width: 16rem;
+  background-color: #38393d;
+  border-radius: 15px;
+  color: white;
+}
+
+#cartItems {
+  display: none;
+  height: 80vh;
+  opacity: 0;
+  overflow: scroll;
+  position: absolute;
+  background-color: black;
+  top: 10vh;
+  transition: all 0.5s;
+  padding: 2rem;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
