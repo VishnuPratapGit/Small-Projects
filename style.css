@@ -85,9 +85,10 @@ body {
   display: none;
   height: 80vh;
   opacity: 0;
+  width: 95%;
   overflow: scroll;
   position: absolute;
-  background-color: black;
+  background-color: rgb(230, 223, 223);
   top: 10vh;
   transition: all 0.5s;
   padding: 2rem;
