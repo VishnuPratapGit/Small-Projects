@@ -95,3 +95,22 @@ body {
   flex-wrap: wrap;
   gap: 3rem;
 }
+
+#clearStorage {
+  background-color: rgb(255, 98, 67);
+  color: white;
+  height: min-content;
+  padding: 10px;
+  border: none;
+  transition: all 0.1s;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  border-radius: 5px;
+  font-family: ubuntu;
+  font-weight: 600;
+}
+#clearStorage:hover {
+  background-color: rgb(255, 42, 0);
+}

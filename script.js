@@ -2,6 +2,7 @@ const cart = document.getElementById("cart");
 const cartNumber = document.getElementById("count").querySelector("span");
 const items = document.getElementById("items");
 const citems = document.getElementById("cartItems");
+const clearStorage = document.getElementById("clearStorage");
 
 const data = [
     { name: "apple", pieces: 23 },
@@ -50,9 +51,17 @@ newData.forEach((item, index) => {
         cartArray.push(item);
         cartArray = Object.values(uniqueData(cartArray));
         localStorage.setItem("cartArray", JSON.stringify(cartArray));
-        const cartElement = createFruitElement(item);
-        citems.appendChild(cartElement);
-        cartNumber.innerHTML = cartArray.length;
+        if (!citems.querySelector(`#${item.name}`)) {
+            const cartElement = createFruitElement(item);
+            citems.appendChild(cartElement);
+            cartNumber.innerHTML = cartArray.length;
+        } else {
+            const prevElement = citems.querySelector(`#${item.name}`);
+            prevElement.remove();
+            const cartElement = createFruitElement(item);
+            citems.appendChild(cartElement);
+            cartNumber.innerHTML = cartArray.length;
+        }
     });
     items.appendChild(element);
     element.append(button);
@@ -83,3 +92,9 @@ window.addEventListener("load", () => {
         cartNumber.innerHTML = cartArray.length;
     });
 });
+
+clearStorage.onclick = function () {
+    localStorage.clear();
+    window.location.reload();
+};
+
