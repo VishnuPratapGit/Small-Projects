@@ -16,17 +16,20 @@ const data = [
 ];
 
 //group all data in unique objects
-const counts = {};
-data.forEach((element) => {
-    const key = element.name;
-    if (counts[key]) {
-        counts[key].pieces += element.pieces;
-    } else {
-        counts[key] = element;
-    }
-});
+const uniqueData = (dataArr) => {
+    const counts = {};
+    dataArr.forEach((element) => {
+        const key = element.name;
+        if (counts[key]) {
+            counts[key].pieces += element.pieces;
+        } else {
+            counts[key] = element;
+        }
+    });
+    return counts;
+}
 
-const newData = Object.values(counts);
+const newData = Object.values(uniqueData(data));
 
 function createFruitElement(item) {
     const element = document.createElement("div");
@@ -45,6 +48,7 @@ newData.forEach((item, index) => {
     button.innerHTML = "Add To Cart";
     button.addEventListener("click", () => {
         cartArray.push(item);
+        cartArray = Object.values(uniqueData(cartArray));
         localStorage.setItem("cartArray", JSON.stringify(cartArray));
         const cartElement = createFruitElement(item);
         citems.appendChild(cartElement);
